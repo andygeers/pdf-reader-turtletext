@@ -1,1 +1,1 @@
-rvm use 1.9.3@pdf-reader-turtletext --create
+rvm use 2.4.1@pdf-reader-turtletext --create

@@ -1,3 +1,4 @@
+
 # Class for reading structured text content
 #
 # Typical usage:
@@ -148,6 +149,12 @@ class PDF::Reader::Turtletext
   #
   def bounding_box(&block)
     PDF::Reader::Turtletext::Textangle.new(self,&block)
+  end
+
+  def flowed_content(page)
+    receiver = PDF::Reader::FlowTextReceiver.new
+    reader.page(page).walk(receiver)
+    receiver.content
   end
 
   private

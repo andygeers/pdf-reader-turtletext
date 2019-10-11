@@ -18,6 +18,11 @@ class PDF::Reader::PositionalTextReceiver < PDF::Reader::PageTextReceiver
     @content[newy][newx] << @state.current_font.to_utf8(string)
   end
 
+  def page=(page)
+    super(page)
+    @content = {}
+  end
+
   # override PageTextReceiver content accessor .
   # Returns a hash of positional text:
   #   {
